@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="weather.css">
+</head>
+<body>
+
+ <div class="header">
+
+    <div class="header_logo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc6jdWA2GQS0PASnJz7Zbr8syn9r9R9J40Gg&usqp=CAU" alt="">
+         </div>
+
+ 
+
+
+                            <!--flagdiv-->
+
+    <div class="flag_div">
+
+        <div class="flag" id="india"> 
+         <img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiaH8G1DXProFzcrtdaLaleItjaeIHwZQAXw&usqp=CAU" alt="">
+            </div>
+
+         <div class="flag" id="srilanka">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZYqaC2aXyFicAuHN7X4TYNHiZ8-llCiyVkA&usqp=CAU" alt="">
+             </div>
+
+
+             <div class="flag"  id="America">
+                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_Yk6zCwVGW5-OPVyjClbbEfFwTXy-IcUM3Q&usqp=CAU" alt="">
+             </div>
+
+
+
+             <div class="flag" id="Australia">
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmdWPDZ2PphaAiYMSK-8xxCinuH3pfdYXoPA&usqp=CAU" alt="">
+             </div>
+
+
+
+
+             <div class="flag" id="nepal">
+                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhCGS5cCT5OXfby_2Vw3pWutp9Jrnbx5FdWg&usqp=CAU" alt="">
+             </div>
+
+
+
+             <div class="flag" id="bihar">
+                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo4y4tyC4rwY442dic3_gVHi61FPfDoRTMYA&usqp=CAU" alt="">
+             </div>
+    </div>
+     
+       <!--endflag-->
+
+
+
+       <div class="input_div">
+
+        <input type="text" name="" id="city" placeholder="ENTER CITY OR COUNTRY">
+        
+        <button onclick="getwether()">Search</button>
+       </div>
+
+</div>
+
+
+
+      <!--startnavbar-->
+
+
+      <div class="navbar">
+
+        <div class="nav_leftitem">
+
+        <div class="nav_item" id="home"> <a href="./weatherapp/">Home</a></div>
+
+        <div class="nav_item" id="weekelydata">  <a href="weekly.html"> weekelydata</a> </div>
+
+        <div class="nav_item" id="weatherforecast">  <a href="news.html">News</a></div>
+
+
+        <div class="nav_item" id="weathermaps"> Weathermaps</div>
+
+      </div>
+
+
+
+
+         <!--navrightitem-->
+
+      <div class="nav_rightitem">
+
+        <div class="nav_item" id="login">login</div>
+
+        <div class="nav_item" id="signup">signup</div>
+
+      </div>
+
+      </div>
+
+
+
+
+
+      <!--heading paragraph div-->
+
+    <div class="main_headingdiv">
+  
+
+
+
+      <div class="heading_para_container">
+
+        <div class="heading">
+          Accurate 8 Day Weather Forecasts from Weather-Forecast.com
+        </div>
+
+        <div class="para">
+
+          Accurate 8 Day Weather Forecasts for thousands of places around the World. We provide detailed Weather Forecasts over a 8 day period updated four times a day. Our interactive weather maps can be customized to show forecasts of temperature, weather and wind. You can also overlay pressure and live weather observations on maps of any country. Select our weather today forecast pages to get 3 hourly detail and live weather reports. Browse our weather photo albums showing a great selection of weather extremes from around the world including hurricanes, floods, storms, tornadoes and major snow events.
+        </div>
+
+      </div>
+
+
+       <!--img-->
+
+       <div class="heading_right_container">
+
+          <div class="heading_weather">Weather Forecast widget</div>
+
+          <div class="weather_img_div">
+            <img src="https://www.weather-forecast.com/images/weather_forecast_widget_2x.png" alt="">
+          </div>
+
+        
+
+       </div>
+
+
+
+    </div>
+
+
+
+
+      <!--city container-->
+
+
+     <div class="citycontainer">
+
+    
+      <div id="datamaindiv">
+      <div id="data"></div>
+       </div>
+
+   
+    <!--suncontainer-->
+       <div id="sun_container"></div>
+
+
+
+   <!--maphere-->
+   
+   <div id="map_div"></div>
+
+
+
+    </div>
+
+    <!--finish city comntainer-->
+
+
+    <!--7day data container-->
+
+    <div class="eightheaddiv">Accurate 8 Day Weather Forecasts from Weather-Forecast.com</div>
+
+
+ <div class="seven_day_container">   
+
+
+      <div class="show7"></div>
+
+    </div>    
+
+
+    <!--footer-->
+
+    <footer>
+      <span>Created By <a href="">Akib Ali</a> | <span class="far fa-copyright"></span> 2022 All rights reserved.</span>
+    </footer>
+
+
+
+
+</body>
+</html>
+
+
+
+<script>
+
+    let data_div = document.getElementById("data")
+
+     let sun_container = document.getElementById("sun_container")
+
+    async function getwether(){
+
+   try{
+
+    let city = document.getElementById("city").value;
+
+    let response = await fetch(`https:api.openweathermap.org/data/2.5/weather?q=${city}&appid=be889d57986fddc76f98efad325dda50&units=metric`)                      // me
+
+
+  //let response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=ec1496d96eb896814e0d639c08280d45`)
+
+    let data = await response.json();
+
+
+
+         //  7 Days weather
+            let lon = data.coord.lon;
+            let lat = data.coord.lat;
+
+            let response2 = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude={part}&appid=e4c70ce6a6821649a416cb9521d5f4f8&units=metric`)
+            let data2 = await response2.json();
+
+          console.log(data2)
+
+     showweather(data);
+
+
+      WeathersevenDay(data2.daily)
+  
+
+    console.log("data:", data)
+
+    console.log("data2", data2)
+
+    mapcall(city);
+
+
+   }catch(err){
+     
+    console.log("error:", err)
+   }
+
+    }
+
+  
+
+
+                                        // data ko screen p show k l
+var seven = document.querySelector(".show7");
+
+ function showweather(weather){
+
+   data_div.innerHTML = "" ;
+
+   sun_container.innerHTML = "";
+
+   seven.innerHTML = "";
+
+   let country = document.createElement("h2");
+   country.setAttribute("class", "country")
+   country.innerText = `Country : ${weather.sys.country}`
+
+   let name = document.createElement("p");
+   name.setAttribute("class","cityname")
+   name.innerText = `City : ${weather.name}`;
+
+     let temp  = document.createElement("p");
+     temp.setAttribute("class","temperature")
+     temp.innerText = `Temp : ${weather.main.temp}℃`;
+
+
+     let temp_min = document.createElement("p");
+     temp_min.setAttribute("class","tempmin");
+     temp_min .innerText= `Min_Temp : ${weather.main.temp_min}℃`;
+
+     
+
+     let max_temp = document.createElement("p");
+     max_temp.setAttribute("class","maxtemp");
+     max_temp.innerText = `Max_Temp : ${weather.main.temp_max}℃`;
+
+
+
+     let status = document.createElement("p");
+     status.setAttribute("class", "status")
+     status.innerText = `Condition : ${weather.weather[0].main}`
+
+
+    let pressure = document.createElement("p");
+    pressure.setAttribute("class","pressure")
+    pressure.innerText =`Pressure: ${weather.main.pressure}`;
+
+
+
+   //sunrise
+  
+    let riseDate = new Date((weather.sys.sunrise) * 1000);
+        let rhour = riseDate.getHours();
+        let rminute = riseDate.getMinutes();
+        let risetime = `${rhour}:${rminute}`
+
+    let sunrise = document.createElement("p");
+    sunrise.setAttribute("class","sunrise")
+    sunrise.innerText = ` ${risetime} Am`
+
+
+
+    let riseimage = document.createElement("img")
+    riseimage.setAttribute("class", "riseimage")
+
+    riseimage.src = "https://spng.pngfind.com/pngs/s/2-25914_sunrise-vector-png-transparent-background-sun-clipart-png.png"
+
+
+
+    let setimage = document.createElement("img")
+    setimage.setAttribute("class", "setimage")
+    setimage.src = "https://i.ibb.co/xYb1WDM/muje-upload-ker.png"
+
+
+   // let sunsetimage = document.createElement("img")
+   // sunsetimage.setAttribute("class","sunsetimage")
+
+  //  sunsetimage.src ="https://i.ibb.co/xYb1WDM/muje-upload-ker.png"
+  
+  
+
+
+   //sunset
+  
+    let setDate = new Date((weather.sys.sunset) * 1000);
+        let shour = setDate.getHours();
+        let sminute = setDate.getMinutes();
+        let setime = `${shour}:${sminute}`
+   
+    let sunset = document.createElement("p");
+    sunset.setAttribute("class","sunset")
+    sunset.innerText = `${setime} PM`;
+
+
+
+    //time
+
+
+      let time = document.createElement("p")
+      time.setAttribute("class","time")
+        var now = new Date();
+        time.innerText = now.toDateString();
+
+   
+
+ 
+
+    sun_container.append(time,riseimage,sunrise,setimage,sunset,)
+    
+    data_div.append(country,name,status,temp,temp_min,max_temp , pressure,)
+
+
+ }
+
+
+
+
+ //map
+
+
+ function mapcall(city){
+
+  let maap = document.getElementById("map_div");
+
+  let insidemap = document.getElementsByClassName("gmap_canvas");
+
+  maap.innerHTML=` <div class="mapouter"><div class="gmap_canvas"><iframe width="700" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=${city}&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://2piratebay.org"></a><br></div></div>`    
+
+    
+
+ // maap.append(insidemap)
+
+
+
+ }
+
+
+
+
+
+
+
+
+
+
+
+ // 7 day data 
+
+
+
+
+
+
+ function WeathersevenDay(weather7) {
+        weather7.map(function (event) {
+  
+            var divshow7 = document.createElement("div");
+            var imgDiv = document.createElement("div");
+            var icon = document.createElement("img")
+            var day = document.createElement("p");
+            var maxtp = document.createElement("p");
+            var mintp = document.createElement("p")
+
+            let date = new Date(event.dt * 1000);
+            if (date.getDay() == 0) {
+                day.textContent = "Sun";
+                icon.src = `http://openweathermap.org/img/wn/${event.weather[0].icon}@2x.png`
+                maxtp.textContent = `Max-${Math.floor(event.temp.max)}°c`;
+                mintp.textContent = `Min-${Math.floor(event.temp.min)}°c`;
+            }
+            else if (date.getDay() == 1) {
+                day.textContent = "Mon";
+                icon.src = `http://openweathermap.org/img/wn/${event.weather[0].icon}@2x.png`
+                maxtp.textContent = `Max-${Math.floor(event.temp.max)}°c`;
+                mintp.textContent = `Min-${Math.floor(event.temp.min)}°c`;
+            }
+            else if (date.getDay() == 2) {
+                day.textContent = "Tue";
+                icon.src = `http://openweathermap.org/img/wn/${event.weather[0].icon}@2x.png`
+                maxtp.textContent = `Max-${Math.floor(event.temp.max)}°c`;
+                mintp.textContent = `Min-${Math.floor(event.temp.min)}°c`;
+            }
+            else if (date.getDay() == 3) {
+                day.textContent = "Wed";
+                icon.src = `http://openweathermap.org/img/wn/${event.weather[0].icon}@2x.png`
+                maxtp.textContent = `Max-${Math.floor(event.temp.max)}°c`;
+                mintp.textContent = `Min-${Math.floor(event.temp.min)}°c`;
+            }
+            else if (date.getDay() == 4) {
+                day.textContent = "Thu";
+                icon.src = `http://openweathermap.org/img/wn/${event.weather[0].icon}@2x.png`
+                maxtp.textContent = `Max-${Math.floor(event.temp.max)}°c`;
+                mintp.textContent = `Min-${Math.floor(event.temp.min)}°c`;
+            }
+            else if (date.getDay() == 5) {
+                day.textContent = "Fri";
+                icon.src = `http://openweathermap.org/img/wn/${event.weather[0].icon}@2x.png`
+                maxtp.textContent = `Max-${Math.floor(event.temp.max)}°c`;
+                mintp.textContent = `Min-${Math.floor(event.temp.min)}°c`;
+            }
+            else if (date.getDay() == 6) {
+                day.textContent = "Sat";
+                icon.src = `http://openweathermap.org/img/wn/${event.weather[0].icon}@2x.png`
+                maxtp.textContent = `Max-${Math.floor(event.temp.max)}°c`;
+                mintp.textContent = `Min-${Math.floor(event.temp.min)}°c`;
+            }
+            else if (date.getDay() == 7) {
+                day.textContent = "Sun";
+                icon.src = `http://openweathermap.org/img/wn/${event.weather[0].icon}@2x.png`
+                maxtp.textContent = `Max-${Math.floor(event.temp.max)}°c`;
+                mintp.textContent = `Min-${Math.floor(event.temp.min)}°c`;
+            }
+
+          
+            imgDiv.append(icon);
+            divshow7.append(day, imgDiv, maxtp, mintp)
+            seven.append(divshow7);
+
+        })
+    }
+
+
+
+
+
+
+</script>

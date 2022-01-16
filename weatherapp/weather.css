@@ -1,0 +1,529 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.header{
+
+    height: 130px;
+    width: 100%;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsmwaZtiX3HP1heOtZqIYRWpJupL1axHrX2g&usqp=CAU");
+    background-repeat: no-repeat, repeat;
+    background-size: cover; /* Resize the background image to cover the entire container */
+    display: flex;
+
+
+
+    
+}
+
+img{
+    width: 100%;
+    height: 100px;
+}
+
+.header_logo img{
+    height: 50px;
+    width: 200px;
+    background-color: transparent;
+    margin-top: 30px;
+    margin-left: 100px;
+}
+
+
+
+.flag_div{
+    display: flex;
+    margin-left: 650px;
+    margin-top: 10px;
+    height:30px;
+  width: 300px;
+  /*  border: 2px solid red;     */
+
+}
+
+.flag{
+    margin-left: 10px;
+}
+
+.flag img{
+    height: 25px;
+    width: 40px;
+}
+
+
+
+.input_div{
+    height:50px;
+    width: 450px;
+  /*  border: 2px solid  green;    */
+    margin-top: 60px;
+    margin-left: -425px;
+}
+
+input{
+    height: 40px;
+    width: 300px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+button{
+
+    height: 40px;
+    width: 100px;
+    margin-left: 15px;
+    background-color: grey;
+}
+
+
+
+/* start navbar */
+
+.navbar{
+
+    height: 40px;
+    width: 100%;
+    background-color: rgb(80, 77, 77);
+    display: flex;
+}
+
+
+.nav_leftitem{
+
+    display: flex;
+    width: 600px;
+   /* border:  2px solid red;    */
+    margin-left: 100px;
+    
+}
+
+.nav_item{
+
+    margin-top: 5px;
+    color: white;
+    font-size: 20px;
+  /*  margin-left: 100px;   */
+}
+
+#weatherforecast, #weekelydata, #weathermaps, #login, #signup{
+    margin-left: 20px;
+}
+
+
+
+.nav_rightitem{
+
+    display: flex;
+    width: 150px;
+ /*   border: 2px solid green;      */
+    margin-left: 420px;
+    
+}
+
+
+a{
+    color: white;
+}
+
+a:hover{
+
+    background-color: black;
+    height: 25px;
+    text-decoration: underline;
+    cursor: pointer;
+   
+
+}
+
+
+#home:hover, #weatherforecast:hover,#weekelydata:hover,#weathermaps:hover,#login:hover, #signup:hover{
+   background-color: black;
+   height: 25px;
+   text-decoration: underline;
+   cursor: pointer;
+   
+   
+
+}        
+
+.main_headingdiv{
+
+    width: 98%;
+    height: 125px;
+  /*  border: 2px solid black;     */
+    margin:15px ;
+    display: flex;
+}
+
+
+
+/*    heading para container */
+
+.heading_para_container{
+
+height: 125px;
+width: 62%;
+ /*border: 2px solid purple;   */
+margin-left: 90px;
+
+}
+
+
+
+.heading{
+    color: green;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.para{
+
+    margin-top: 7px;
+
+}
+
+.heading_weather{
+   color: blue;
+}
+
+.heading_weather:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+.heading_right_container{
+
+    height: 125px;
+    width: 200px;
+  /*  border: 2px solid blue;    */
+    margin-left: 150px;
+}
+
+
+
+.weather_img_div img{
+
+    height: 95px;
+    width: 200px;
+    margin-top: 10px;
+}
+
+
+
+
+
+
+/*heading para contaner finish */
+
+
+.citycontainer{
+
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDExp3JHqwlFVnLjNObiSx4ACiVLtGRLA7_Q&usqp=CAU");
+    background-repeat: no-repeat, repeat;
+    background-size: cover; /* Resize the background image to cover the entire container */
+  
+
+    display: flex;
+    width: 100%;
+  /*  border: 2px solid blue;      */
+    height: 400px;
+    margin: auto;
+    margin-top: 30px;
+}
+
+
+
+#datamaindiv{
+
+
+    height: 400px;
+    min-width: 200px;
+/*    border: 2px solid red;       */
+    margin-left: 10px;
+}
+
+
+
+#sun_container{
+
+    height: 300px;
+    min-width: 200px;
+ /*   border: 2px solid purple;         */
+    margin-left: 30px;
+}
+
+.riseimage{
+    margin-top: 40px;
+
+    height: 50px;
+    width: 80px;
+}
+
+.setimage{
+
+    height: 50px;
+    width: 80px;
+    margin-top: 30px;
+}
+
+
+.time{
+
+    font-size: 25px;
+    color:green;
+}
+
+
+
+
+
+#map_div{
+
+    margin-left: 200px;
+
+}
+
+
+.country{
+    color: blue;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 45px;
+}
+
+.cityname{
+
+    color: palevioletred;
+    font-size: 25px;
+    line-height: 45px;
+}
+
+.temperature{
+
+    color: green;
+    font-size: 20px;
+    line-height: 45px;
+}
+
+
+.tempmin{
+    color: orchid;
+    font-size: 20px;
+    line-height: 45px;
+
+}
+
+.status{
+
+    font-size: 25px;
+    color: red;
+    font-size: 25px;
+    line-height: 45px;
+}
+
+.maxtemp{
+
+    color: red;
+    font-size: 20px;
+    line-height: 45px;
+
+}
+
+.pressure{
+
+    color: orchid;
+    font-size: 20px;
+    line-height: 45px;
+}
+
+
+.sunrise,.sunset{
+
+    font-size: 25px;
+    color: orchid;
+}
+
+
+
+
+/*   seven day container    */
+
+.seven_day_container{
+
+margin-top: 40px;
+background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuMP4rZyZFTV9TxvpabOOVN5IvEhaAMlZDLQ&usqp=CAU");   
+background-repeat: no-repeat, repeat;
+background-size: cover;                
+
+/*background-color: peachpuff;   */
+height: 200px;      
+
+}     
+
+
+
+
+.show7 {
+
+    width: 90%;
+    /* border: 2px solid red; */
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    font-weight: bold;
+    grid-gap: 15px;
+
+
+
+}
+
+.show7>div {
+    margin-top: 20px;
+  /*  border: 2px solid rgba(33, 255, 4, 0.911);        */
+    
+
+
+
+}
+
+
+.eightheaddiv{
+
+    text-align: center;
+    margin-top: 40px;
+    color: green;
+    font-weight: bold;
+    font-size: 25px;
+
+}
+
+
+
+
+.video{
+
+    height: 300px;
+    
+}
+
+video{
+    height: 300px;
+    width: 1600px;
+    
+}
+
+
+
+/* footer */
+
+
+footer{
+    background: #111;
+    padding: 15px 23px;
+    color: #fff;
+    text-align: center;
+    margin-top: 0px;
+
+}
+footer span a{
+    color: crimson;
+    text-decoration: none;
+}
+footer span a:hover{
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+/*  slider bar */
+
+
+/* news  */
+
+
+.newsheading{
+
+    width: 50%;
+    margin-top: 20px;
+    margin-left: 50px;
+
+}
+
+
+              
+    
+        
+.slider{    
+    /* max-width:100%;   */
+     overflow: hidden;
+     display: flex;
+     margin-top: 40px;
+ }
+ 
+ .slider .card{
+     background-color:white;
+     flex: 1;
+     margin:0 20px;
+     height: 500px;
+     width: 1300px;
+     margin: auto;
+     
+ }
+ 
+ .slider .card .img{
+     height: 800px;
+     width: 100%;
+     
+ 
+ }
+ 
+ .slider .card .img img{
+     height:100%;
+     width:100%;
+ /*  border: blanchedalmond;      */
+   border-radius: 20px;
+     object-fit:cover;
+ }
+ 
+ 
+
+ 
+ .owl-dots{
+     text-align: center;
+     margin-top: 20px;
+ }
+ .owl-dot{
+     height: 13px;
+     width: 13px;
+     margin: 0 0px;
+     margin-top: -23px;
+   /*  outline: none!important;   */
+     border-radius: 50%;
+     border: 2px solid transparent;
+     transition: all 0.30s ease;
+ }
+ 
+ 
+ .owl-dot.active{
+     width: 35px;
+     border-radius: 14px;
+     
+ }
+ .owl-dot.active,
+ .owl-dot:hover{
+     background:grey;
+     
+ }
+
+
+
+
